@@ -72,3 +72,32 @@ def test_invalid_cpu_is_rejected():
 
     with pytest.raises(ValueError):
         analyze_server(server)
+
+
+from src.runbook_retriever import load_runbooks, find_runbook
+
+
+def test_load_runbooks():
+    runbooks = load_runbooks()
+
+    assert len(runbooks) == 3
+
+
+def test_find_cpu_runbook():
+    runbook = find_runbook("High CPU usage")
+
+    assert runbook is not None
+    assert runbook["id"] == "RB001"
+
+
+def test_find_memory_runbook():
+    runbook = find_runbook("High memory usage")
+
+    assert runbook is not None
+    assert runbook["id"] == "RB002"
+
+
+def test_unknown_issue_returns_none():
+    runbook = find_runbook("Unknown issue")
+
+    assert runbook is None
