@@ -101,3 +101,45 @@ def test_unknown_issue_returns_none():
     runbook = find_runbook("Unknown issue")
 
     assert runbook is None
+
+
+from src.semantic_search import SemanticSearch
+
+
+def test_semantic_search_finds_cpu_runbook():
+    search_engine = SemanticSearch()
+
+    result = search_engine.search(
+        "The processor is using too many resources"
+    )
+
+    assert result["found"] is True
+    assert result["runbook"]["id"] == "RB001"
+
+
+def test_semantic_search_finds_memory_runbook():
+    search_engine = SemanticSearch()
+
+    result = search_engine.search(
+        "The machine has almost no free memory"
+    )
+
+    assert result["found"] is True
+    assert result["runbook"]["id"] == "RB002"
+
+
+def test_semantic_search_rejects_unrelated_query():
+    search_engine = SemanticSearch()
+
+    result = search_engine.search(
+        "How can I improve my website design?"
+    )
+
+    assert result["found"] is False
+
+
+def test_semantic_search_rejects_empty_query():
+    search_engine = SemanticSearch()
+
+    with pytest.raises(ValueError):
+        search_engine.search("   ")
