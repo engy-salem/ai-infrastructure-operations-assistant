@@ -57,3 +57,18 @@ def test_high_memory_is_detected():
     assert result["status"] == "Incident"
     assert "High memory usage" in result["issues"]
 
+
+
+import pytest
+
+
+def test_invalid_cpu_is_rejected():
+    server = {
+        "server_id": "test-05",
+        "cpu_usage": 150,
+        "memory_usage": 50,
+        "status": "running"
+    }
+
+    with pytest.raises(ValueError):
+        analyze_server(server)
