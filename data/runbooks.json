@@ -1,1 +1,58 @@
 
+[
+  {
+    "id": "RB001",
+    "title": "High CPU Usage",
+    "problem": "Server CPU usage is above 80%",
+    "possible_causes": [
+      "High application workload",
+      "An inefficient process",
+      "Too many running processes"
+    ],
+    "troubleshooting_steps": [
+      "Check CPU usage for individual processes",
+      "Identify processes consuming excessive CPU",
+      "Review recent application changes",
+      "Check application logs for errors",
+      "Restart a service only if approved and necessary"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": "RB002",
+    "title": "High Memory Usage",
+    "problem": "Server memory usage is above 90%",
+    "possible_causes": [
+      "Memory leak",
+      "Too many running applications",
+      "Insufficient available memory"
+    ],
+    "troubleshooting_steps": [
+      "Check memory usage by process",
+      "Identify processes consuming excessive memory",
+      "Review application logs for memory errors",
+      "Check whether memory usage increases over time",
+      "Escalate the incident if memory usage remains critical"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": "RB003",
+    "title": "Server Is Not Running",
+    "problem": "Server status is stopped",
+    "possible_causes": [
+      "Unexpected shutdown",
+      "Infrastructure failure",
+      "Manual stop operation"
+    ],
+    "troubleshooting_steps": [
+      "Verify the server status in the monitoring system",
+      "Check system and infrastructure logs",
+      "Review recent shutdown or maintenance events",
+      "Check infrastructure connectivity",
+      "Restart the server only after checking the cause and obtaining authorization"
+    ],
+    "severity": "critical"
+  }
+]
+
