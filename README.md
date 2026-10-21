@@ -184,9 +184,5 @@ If a query is unrelated to the available runbooks, the semantic retrieval compon
 - Retrieval evaluation using metrics such as Recall@K and Mean Reciprocal Rank (MRR).
 - Containerization and deployment to a cloud environment.
 
-## Author
 
-**Engy Salem**
-
-GitHub: [engy-salem](https://github.com/engy-salem)
 
